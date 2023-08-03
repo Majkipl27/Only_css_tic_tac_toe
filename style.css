@@ -287,30 +287,8 @@ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ 
 #cell-1-x:checked ~ #cell-4-x:checked ~ #cell-7-x:checked ~ #cover,
 #cell-2-x:checked ~ #cell-5-x:checked ~ #cell-8-x:checked ~ #cover,
 #cell-3-x:checked ~ #cell-6-x:checked ~ #cell-9-x:checked ~ #cover,
-#cell-2-x:checked ~ #cell-5-x:checked ~ #cell-9-x:checked ~ #cover,
-#cell-3-x:checked ~ #cell-5-x:checked ~ #cell-7-x:checked ~ #cover,
-#cell-1-o:checked ~ #cell-2-o:checked ~ #cell-3-o:checked ~ #cover,
-#cell-4-o:checked ~ #cell-5-o:checked ~ #cell-6-o:checked ~ #cover,
-#cell-7-o:checked ~ #cell-8-o:checked ~ #cell-9-o:checked ~ #cover,
-#cell-1-o:checked ~ #cell-4-o:checked ~ #cell-7-o:checked ~ #cover,
-#cell-2-o:checked ~ #cell-5-o:checked ~ #cell-8-o:checked ~ #cover,
-#cell-3-o:checked ~ #cell-6-o:checked ~ #cell-9-o:checked ~ #cover,
-#cell-1-o:checked ~ #cell-5-o:checked ~ #cell-9-o:checked ~ #cover,
-#cell-3-o:checked ~ #cell-5-o:checked ~ #cell-7-o:checked ~ #cover {
-  display: block;
-}
-
-#cell-1-x:checked ~ #cell-2-x:checked ~ #cell-3-x:checked ~ #cover,
-#cell-4-x:checked ~ #cell-5-x:checked ~ #cell-6-x:checked ~ #cover,
-#cell-7-x:checked ~ #cell-8-x:checked ~ #cell-9-x:checked ~ #cover,
-#cell-1-x:checked ~ #cell-4-x:checked ~ #cell-7-x:checked ~ #cover,
-#cell-2-x:checked ~ #cell-5-x:checked ~ #cell-8-x:checked ~ #cover,
-#cell-3-x:checked ~ #cell-6-x:checked ~ #cell-9-x:checked ~ #cover,
 #cell-1-x:checked ~ #cell-5-x:checked ~ #cell-9-x:checked ~ #cover,
-#cell-3-x:checked ~ #cell-5-x:checked ~ #cell-7-x:checked ~ #cover {
-  display: block;
-}
-
+#cell-3-x:checked ~ #cell-5-x:checked ~ #cell-7-x:checked ~ #cover,
 #cell-1-o:checked ~ #cell-2-o:checked ~ #cell-3-o:checked ~ #cover,
 #cell-4-o:checked ~ #cell-5-o:checked ~ #cell-6-o:checked ~ #cover,
 #cell-7-o:checked ~ #cell-8-o:checked ~ #cell-9-o:checked ~ #cover,
