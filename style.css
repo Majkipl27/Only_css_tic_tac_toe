@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #1e1e1e;
+  font-family: 'Quantico', sans-serif;
+}
+
+input[type="radio"] {
+  position: absolute;
+  top: -10000rem;
+}
+
+#board {
+  width: 620px;
+  height: 620px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tile {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  cursor: pointer;
+  background-color: #a7a6a6;
+  border-radius: 8px;
+  position: relative;
+}
+
+.tile label,
+.tile div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #a7a6a6;
+}
+
+.tile div {
+  display: none;
+  overflow: hidden;
+  
+}
+
+label[for$="-x"] {
+  z-index: 1;
+}
+
+input:checked ~ #board label[for$="-o"] {
+  z-index: 2;
+}
+
+input:checked ~ input:checked ~ #board label[for$="-x"] {
+  z-index: 3;
+}
+
+input:checked ~ input:checked ~ input:checked ~ #board label[for$="-o"] {
+  z-index: 4;
+}
+
+input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ #board label[for$="-x"] {
+  z-index: 5;
+}
+
+input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ #board label[for$="-o"] {
+  z-index: 6;
+}
+
+input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ #board label[for$="-x"] {
+  z-index: 7;
+}
+
+input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ #board label[for$="-o"] {
+  z-index: 8;
+}
+
+input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ input:checked
+  ~ #board label[for$="-x"] {
+  z-index: 9;
+}
+
+input[id*="-1-"]:checked ~ #board label[for*="-1-"],
+input[id*="-2-"]:checked ~ #board label[for*="-2-"],
+input[id*="-3-"]:checked ~ #board label[for*="-3-"],
+input[id*="-4-"]:checked ~ #board label[for*="-4-"],
+input[id*="-5-"]:checked ~ #board label[for*="-5-"],
+input[id*="-6-"]:checked ~ #board label[for*="-6-"],
+input[id*="-7-"]:checked ~ #board label[for*="-7-"],
+input[id*="-8-"]:checked ~ #board label[for*="-8-"],
+input[id*="-9-"]:checked ~ #board label[for*="-9-"] {
+  display: none;
+}
+
+input[id*="-1-"]:checked ~ #board #tile-1 div,
+input[id*="-2-"]:checked ~ #board #tile-2 div,
+input[id*="-3-"]:checked ~ #board #tile-3 div,
+input[id*="-4-"]:checked ~ #board #tile-4 div,
+input[id*="-5-"]:checked ~ #board #tile-5 div,
+input[id*="-6-"]:checked ~ #board #tile-6 div,
+input[id*="-7-"]:checked ~ #board #tile-7 div,
+input[id*="-8-"]:checked ~ #board #tile-8 div,
+input[id*="-9-"]:checked ~ #board #tile-9 div {
+  display: block;
+}
+
+input[id*="-1-x"]:checked ~ #board #tile-1 div::before, 
+input[id*="-2-x"]:checked ~ #board #tile-2 div::before, 
+input[id*="-3-x"]:checked ~ #board #tile-3 div::before, 
+input[id*="-4-x"]:checked ~ #board #tile-4 div::before, 
+input[id*="-5-x"]:checked ~ #board #tile-5 div::before, 
+input[id*="-6-x"]:checked ~ #board #tile-6 div::before, 
+input[id*="-7-x"]:checked ~ #board #tile-7 div::before, 
+input[id*="-8-x"]:checked ~ #board #tile-8 div::before, 
+input[id*="-9-x"]:checked ~ #board #tile-9 div::before {
+  content: "X";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #88B04B;
+  color: #fffec6;
+}
+
+input[id*="-1-o"]:checked ~ #board #tile-1 div::before, 
+input[id*="-2-o"]:checked ~ #board #tile-2 div::before, 
+input[id*="-3-o"]:checked ~ #board #tile-3 div::before, 
+input[id*="-4-o"]:checked ~ #board #tile-4 div::before, 
+input[id*="-5-o"]:checked ~ #board #tile-5 div::before, 
+input[id*="-6-o"]:checked ~ #board #tile-6 div::before, 
+input[id*="-7-o"]:checked ~ #board #tile-7 div::before, 
+input[id*="-8-o"]:checked ~ #board #tile-8 div::before, 
+input[id*="-9-o"]:checked ~ #board #tile-9 div::before {
+  content: "O";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #6B5B95;
+  color: #c6d0ff;
+}
+
+.tile label:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,0.25);
+}
+
+.tile label::before,
+.tile div::before {
+  color: #fff;
+  position: absolute;
+  text-align:center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tile label[for$='-o']:hover::before {
+  content: "O";
+}
+
+.tile label[for$='-x']:hover::before {
+  content: "X";
+}
+
+#end-screen {
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    gap: 1rem;
+    font-size: 4rem;
+}
+
+#end-screen #message::before {
+    content: "Remis";
+    color: #fff;
+}
+
+#form {
+    position: relative;
+}
+
+#cover {
+    position: absolute;
+    width: 620px;
+    height: 620px;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.247);
+    left: 0;
+    top: 0;
+    display: none;
+} 
+
+input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ #end-screen,
+#cell-1-x:checked ~ #cell-2-x:checked ~ #cell-3-x:checked ~ #end-screen,
+#cell-4-x:checked ~ #cell-5-x:checked ~ #cell-6-x:checked ~ #end-screen,
+#cell-7-x:checked ~ #cell-8-x:checked ~ #cell-9-x:checked ~ #end-screen,
+#cell-1-x:checked ~ #cell-4-x:checked ~ #cell-7-x:checked ~ #end-screen,
+#cell-2-x:checked ~ #cell-5-x:checked ~ #cell-8-x:checked ~ #end-screen,
+#cell-3-x:checked ~ #cell-6-x:checked ~ #cell-9-x:checked ~ #end-screen,
+#cell-1-x:checked ~ #cell-5-x:checked ~ #cell-9-x:checked ~ #end-screen,
+#cell-3-x:checked ~ #cell-5-x:checked ~ #cell-7-x:checked ~ #end-screen,
+#cell-1-o:checked ~ #cell-2-o:checked ~ #cell-3-o:checked ~ #end-screen,
+#cell-4-o:checked ~ #cell-5-o:checked ~ #cell-6-o:checked ~ #end-screen,
+#cell-7-o:checked ~ #cell-8-o:checked ~ #cell-9-o:checked ~ #end-screen,
+#cell-1-o:checked ~ #cell-4-o:checked ~ #cell-7-o:checked ~ #end-screen,
+#cell-2-o:checked ~ #cell-5-o:checked ~ #cell-8-o:checked ~ #end-screen,
+#cell-3-o:checked ~ #cell-6-o:checked ~ #cell-9-o:checked ~ #end-screen,
+#cell-1-o:checked ~ #cell-5-o:checked ~ #cell-9-o:checked ~ #end-screen,
+#cell-3-o:checked ~ #cell-5-o:checked ~ #cell-7-o:checked ~ #end-screen {
+  display: flex;
+}
+
+#cell-1-x:checked ~ #cell-2-x:checked ~ #cell-3-x:checked ~ #end-screen #message::before,
+#cell-4-x:checked ~ #cell-5-x:checked ~ #cell-6-x:checked ~ #end-screen #message::before,
+#cell-7-x:checked ~ #cell-8-x:checked ~ #cell-9-x:checked ~ #end-screen #message::before,
+#cell-1-x:checked ~ #cell-4-x:checked ~ #cell-7-x:checked ~ #end-screen #message::before,
+#cell-2-x:checked ~ #cell-5-x:checked ~ #cell-8-x:checked ~ #end-screen #message::before,
+#cell-3-x:checked ~ #cell-6-x:checked ~ #cell-9-x:checked ~ #end-screen #message::before,
+#cell-1-x:checked ~ #cell-5-x:checked ~ #cell-9-x:checked ~ #end-screen #message::before,
+#cell-3-x:checked ~ #cell-5-x:checked ~ #cell-7-x:checked ~ #end-screen #message::before {
+    content: "Gracz X wygrał !";
+    color: #88B04B;
+}
+
+#cell-1-o:checked ~ #cell-2-o:checked ~ #cell-3-o:checked ~ #end-screen #message::before,
+#cell-4-o:checked ~ #cell-5-o:checked ~ #cell-6-o:checked ~ #end-screen #message::before,
+#cell-7-o:checked ~ #cell-8-o:checked ~ #cell-9-o:checked ~ #end-screen #message::before,
+#cell-1-o:checked ~ #cell-4-o:checked ~ #cell-7-o:checked ~ #end-screen #message::before,
+#cell-2-o:checked ~ #cell-5-o:checked ~ #cell-8-o:checked ~ #end-screen #message::before,
+#cell-3-o:checked ~ #cell-6-o:checked ~ #cell-9-o:checked ~ #end-screen #message::before,
+#cell-1-o:checked ~ #cell-5-o:checked ~ #cell-9-o:checked ~ #end-screen #message::before,
+#cell-3-o:checked ~ #cell-5-o:checked ~ #cell-7-o:checked ~ #end-screen #message::before {
+    content: "Gracz O wygrał !";
+    color: #6B5B95;
+}
+
+input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ input:checked ~ #cover,
+#cell-1-x:checked ~ #cell-2-x:checked ~ #cell-3-x:checked ~ #cover,
+#cell-4-x:checked ~ #cell-5-x:checked ~ #cell-6-x:checked ~ #cover,
+#cell-7-x:checked ~ #cell-8-x:checked ~ #cell-9-x:checked ~ #cover,
+#cell-1-x:checked ~ #cell-4-x:checked ~ #cell-7-x:checked ~ #cover,
+#cell-2-x:checked ~ #cell-5-x:checked ~ #cell-8-x:checked ~ #cover,
+#cell-3-x:checked ~ #cell-6-x:checked ~ #cell-9-x:checked ~ #cover,
+#cell-2-x:checked ~ #cell-5-x:checked ~ #cell-9-x:checked ~ #cover,
+#cell-3-x:checked ~ #cell-5-x:checked ~ #cell-7-x:checked ~ #cover,
+#cell-1-o:checked ~ #cell-2-o:checked ~ #cell-3-o:checked ~ #cover,
+#cell-4-o:checked ~ #cell-5-o:checked ~ #cell-6-o:checked ~ #cover,
+#cell-7-o:checked ~ #cell-8-o:checked ~ #cell-9-o:checked ~ #cover,
+#cell-1-o:checked ~ #cell-4-o:checked ~ #cell-7-o:checked ~ #cover,
+#cell-2-o:checked ~ #cell-5-o:checked ~ #cell-8-o:checked ~ #cover,
+#cell-3-o:checked ~ #cell-6-o:checked ~ #cell-9-o:checked ~ #cover,
+#cell-1-o:checked ~ #cell-5-o:checked ~ #cell-9-o:checked ~ #cover,
+#cell-3-o:checked ~ #cell-5-o:checked ~ #cell-7-o:checked ~ #cover {
+  display: block;
+}
+
+#cell-1-x:checked ~ #cell-2-x:checked ~ #cell-3-x:checked ~ #cover,
+#cell-4-x:checked ~ #cell-5-x:checked ~ #cell-6-x:checked ~ #cover,
+#cell-7-x:checked ~ #cell-8-x:checked ~ #cell-9-x:checked ~ #cover,
+#cell-1-x:checked ~ #cell-4-x:checked ~ #cell-7-x:checked ~ #cover,
+#cell-2-x:checked ~ #cell-5-x:checked ~ #cell-8-x:checked ~ #cover,
+#cell-3-x:checked ~ #cell-6-x:checked ~ #cell-9-x:checked ~ #cover,
+#cell-1-x:checked ~ #cell-5-x:checked ~ #cell-9-x:checked ~ #cover,
+#cell-3-x:checked ~ #cell-5-x:checked ~ #cell-7-x:checked ~ #cover {
+  display: block;
+}
+
+#cell-1-o:checked ~ #cell-2-o:checked ~ #cell-3-o:checked ~ #cover,
+#cell-4-o:checked ~ #cell-5-o:checked ~ #cell-6-o:checked ~ #cover,
+#cell-7-o:checked ~ #cell-8-o:checked ~ #cell-9-o:checked ~ #cover,
+#cell-1-o:checked ~ #cell-4-o:checked ~ #cell-7-o:checked ~ #cover,
+#cell-2-o:checked ~ #cell-5-o:checked ~ #cell-8-o:checked ~ #cover,
+#cell-3-o:checked ~ #cell-6-o:checked ~ #cell-9-o:checked ~ #cover,
+#cell-1-o:checked ~ #cell-5-o:checked ~ #cell-9-o:checked ~ #cover,
+#cell-3-o:checked ~ #cell-5-o:checked ~ #cell-7-o:checked ~ #cover {
+  display: block;
+}
+
+input[type="reset"] {
+    padding: 8px 16px;
+    font-size: 24px;
+    appearance: none;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
